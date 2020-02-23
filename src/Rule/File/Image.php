@@ -46,7 +46,7 @@ class Image extends AbstractRule
             $this->success = false;
         } else {
             $imageInfo     = getimagesize($value);
-            $extension     = isset($this->imageTypesMap[$imageInfo[2]]) ? $this->imageTypesMap[$imageInfo[2]] : false;
+            $extension     = $imageInfo !== false && isset($this->imageTypesMap[$imageInfo[2]]) ? $this->imageTypesMap[$imageInfo[2]] : false;
             $this->success = ($extension && in_array($extension, $this->options[self::OPTION_ALLOWED_IMAGES]));
         }
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace Sirius\Validation\Rule;
+namespace Latinosoft\Validation\Rule;
 
-use Sirius\Validation\Rule\NotEqual as Rule;
+use Latinosoft\Validation\Rule\NotEqual as Rule;
 
-class NotEqualTest extends \PHPUnit_Framework_TestCase
+class NotEqualTest extends \PHPUnit\Framework\TestCase
 {
 
-    function setUp()
+    function setUp(): void
     {
         $this->rule = new Rule();
     }
@@ -24,5 +24,4 @@ class NotEqualTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->rule->validate('abc'));
         $this->assertFalse($this->rule->validate(null));
     }
-
 }

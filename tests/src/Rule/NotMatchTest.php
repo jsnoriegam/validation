@@ -1,14 +1,13 @@
 <?php
 
-namespace Sirius\Validation\Rule;
+namespace Latinosoft\Validation\Rule;
 
-use Sirius\Validation\DataWrapper\ArrayWrapper;
-use Sirius\Validation\Rule\NotMatch as Rule;
+use Latinosoft\Validation\DataWrapper\ArrayWrapper;
+use Latinosoft\Validation\Rule\NotMatch as Rule;
 
-class NotMatchTest extends \PHPUnit_Framework_TestCase
+class NotMatchTest extends \PHPUnit\Framework\TestCase
 {
-
-    function setUp()
+    function setUp(): void
     {
         $this->rule = new Rule();
         $this->rule->setContext(
@@ -32,5 +31,4 @@ class NotMatchTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->rule->validate('abc'));
         $this->assertFalse($this->rule->validate(null));
     }
-
 }

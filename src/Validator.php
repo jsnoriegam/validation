@@ -7,6 +7,8 @@ class Validator implements ValidatorInterface
 {
     const RULE_REQUIRED = 'required';
 
+    const RULE_REQUIRED_NOT_BLANK = 'requiredNotBlank';
+
     const RULE_REQUIRED_WITH = 'requiredwith';
 
     const RULE_REQUIRED_WITHOUT = 'requiredwithout';
@@ -314,6 +316,22 @@ class Validator implements ValidatorInterface
         $this->messages = array();
 
         return $this;
+    }
+
+    /**
+     * Performs the validation
+     *
+     * @param mixed $data
+     *            array to be validated
+     *
+     * @return void
+     * @throws ValidationException
+     */
+
+    public function assert($data = null) {
+        if(!$this->validate($data)) {
+            throw new ValidationException($this->getMessages());
+        }
     }
 
     /**

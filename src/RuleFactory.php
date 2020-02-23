@@ -62,6 +62,7 @@ class RuleFactory
             'Match',
             'MaxLength',
             'MinLength',
+            'NotBlank',
             'NotEqual',
             'NotInList',
             'NotMatch',

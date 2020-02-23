@@ -1,10 +1,10 @@
 <?php
 namespace Latinosoft\Validation\Rule;
 
-class RequiredNotBlank extends AbstractRule
+class NotBlank extends AbstractRule
 {
-    const MESSAGE = 'This field is required and must not be blank';
-    const LABELED_MESSAGE = '{label} is required and must not be blank';
+    const MESSAGE = 'This field must not be blank';
+    const LABELED_MESSAGE = '{label} must not be blank';
 
     public function validate($value, $valueIdentifier = null)
     {

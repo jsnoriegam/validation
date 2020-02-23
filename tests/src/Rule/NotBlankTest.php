@@ -2,10 +2,9 @@
 
 namespace Latinosoft\Validation\Rule;
 
-use Latinosoft\Validation\DataWrapper\ArrayWrapper;
-use Latinosoft\Validation\Rule\RequiredNotBlank as Rule;
+use Latinosoft\Validation\Rule\NotBlank as Rule;
 
-class RequiredNotBlankTest extends \PHPUnit\Framework\TestCase
+class NotBlankTest extends \PHPUnit\Framework\TestCase
 {
 
     /**

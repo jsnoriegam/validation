@@ -2,6 +2,7 @@
 
 namespace Latinosoft\Validation;
 
+use Latinosoft\Validation\Rule\AbstractRule;
 use Latinosoft\Validation\Rule\Callback as CallbackRule;
 
 class RuleFactory
@@ -110,7 +111,7 @@ class RuleFactory
      */
     public function register($name, $class, $errorMessage = '', $labeledErrorMessage = '')
     {
-        if (is_subclass_of($class, '\Latinosoft\Validation\Rule\AbstractRule')) {
+        if (is_subclass_of($class, AbstractRule::class)) {
             $this->validatorsMap[$name] = $class;
         }
         if ($errorMessage) {

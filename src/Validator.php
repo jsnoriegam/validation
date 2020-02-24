@@ -7,7 +7,7 @@ class Validator implements ValidatorInterface
 {
     const RULE_REQUIRED = 'required';
 
-    const RULE_NOT_BLANK = 'notBlank';
+    const RULE_NOT_BLANK = 'notblank';
 
     const RULE_REQUIRED_WITH = 'requiredwith';
 

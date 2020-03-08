@@ -2,10 +2,12 @@
 
 namespace Latinosoft\Validation\Rule\File;
 
-class ImageRatioTest extends \PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+class ImageRatioTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->validator = new ImageRatio(array( 'ratio' => 1 ));
     }

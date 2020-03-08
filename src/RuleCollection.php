@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Latinosoft\Validation;
 
@@ -10,7 +11,7 @@ class RuleCollection extends \SplObjectStorage
             return;
         }
         if ($rule instanceof Rule\Required) {
-            $rules = array();
+            $rules = [];
             foreach ($this as $r) {
                 $rules[] = $r;
                 $this->detach($r);
@@ -28,7 +29,7 @@ class RuleCollection extends \SplObjectStorage
 
     public function getHash($rule)
     {
-        /* @var $rule Rule\AbstractValidator */
+        /* @var $rule Rule\AbstractRule */
         return $rule->getUniqueId();
     }
 }

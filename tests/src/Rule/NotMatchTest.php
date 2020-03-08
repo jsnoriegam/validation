@@ -4,10 +4,12 @@ namespace Latinosoft\Validation\Rule;
 
 use Latinosoft\Validation\DataWrapper\ArrayWrapper;
 use Latinosoft\Validation\Rule\NotMatch as Rule;
+use PHPUnit\Framework\TestCase;
 
-class NotMatchTest extends \PHPUnit\Framework\TestCase
+class NotMatchTest extends TestCase
 {
-    function setUp(): void
+
+    protected function setUp(): void
     {
         $this->rule = new Rule();
         $this->rule->setContext(

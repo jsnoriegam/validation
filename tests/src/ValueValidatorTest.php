@@ -11,7 +11,7 @@ class ValueValidatorTest extends TestCase
      */
     private $validator;
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->validator = new ValueValidator();
     }

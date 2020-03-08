@@ -2,10 +2,12 @@
 
 namespace Latinosoft\Validation\Rule;
 
+use PHPUnit\Framework\TestCase;
+
 class FakeRule extends \Latinosoft\Validation\Rule\AbstractRule
 {
 
-    function validate($value, $valueIdentifier = null)
+    function validate($value, string $valueIdentifier = null):bool
     {
         $this->value   = $value;
         $this->success = (bool) $value && isset($this->context) && $this->context->getItemValue('key');
@@ -15,10 +17,10 @@ class FakeRule extends \Latinosoft\Validation\Rule\AbstractRule
 }
 
 
-class AbstractRuleTest extends \PHPUnit\Framework\TestCase
+class AbstractRuleTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->rule = new FakeRule();
     }

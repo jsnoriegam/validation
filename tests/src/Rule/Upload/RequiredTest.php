@@ -8,11 +8,12 @@
 
 namespace Latinosoft\Validation\Rule\Upload;
 
+use PHPUnit\Framework\TestCase;
 
-class RequiredTest extends \PHPUnit\Framework\TestCase
+class RequiredTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->validator = new Required();
     }

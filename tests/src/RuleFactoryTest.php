@@ -8,7 +8,7 @@ use Latinosoft\Validation\Rule\AbstractRule;
 class TestingCustomRule extends AbstractRule
 {
 
-    function validate($value, $valueIdentifier = null)
+    function validate($value, string $valueIdentifier = null):bool
     {
         return (bool) ($value % 2);
     }
@@ -17,7 +17,7 @@ class TestingCustomRule extends AbstractRule
 class RuleFactoryTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->ruleFactory = new RuleFactory();
     }

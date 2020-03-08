@@ -4,8 +4,9 @@ namespace Latinosoft\Validation\Rule;
 
 use Latinosoft\Validation\DataWrapper\ArrayWrapper;
 use Latinosoft\Validation\Rule\Required as Rule;
+use PHPUnit\Framework\TestCase;
 
-class RequiredTest extends \PHPUnit\Framework\TestCase
+class RequiredTest extends TestCase
 {
 
     /**
@@ -13,7 +14,7 @@ class RequiredTest extends \PHPUnit\Framework\TestCase
      */
     protected $rule;
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->rule = new Rule();
     }

@@ -2,10 +2,12 @@
 
 namespace Latinosoft\Validation\Rule\Upload;
 
-class SizeTest extends \PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+class SizeTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->validator = new Size(array( 'size' => '1M' ));
     }

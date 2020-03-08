@@ -1,12 +1,12 @@
 <?php
-
 namespace Latinosoft\Validation\Rule;
 
 use Latinosoft\Validation\Rule\Url as Rule;
+use PHPUnit\Framework\TestCase;
 
-class UrlTest extends \PHPUnit\Framework\TestCase
+class UrlTest extends TestCase
 {
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->rule = new Rule();
     }

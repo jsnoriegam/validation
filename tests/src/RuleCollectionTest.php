@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 class RuleCollectionTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->collection = new RuleCollection();
     }

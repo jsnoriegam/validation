@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Latinosoft\Validation;
 
@@ -14,17 +15,17 @@ class RuleFactory
      *
      * @var array
      */
-    protected $validatorsMap = array();
+    protected $validatorsMap = [];
 
     /**
      * @var array
      */
-    protected $errorMessages = array();
+    protected $errorMessages = [];
 
     /**
      * @var array
      */
-    protected $labeledErrorMessages = array();
+    protected $labeledErrorMessages = [];
 
     /**
      * Constructor
@@ -39,7 +40,7 @@ class RuleFactory
      */
     protected function registerDefaultRules()
     {
-        $rulesClasses = array(
+        $rulesClasses = [
             'Alpha',
             'AlphaNumeric',
             'AlphaNumHyphen',
@@ -90,7 +91,7 @@ class RuleFactory
             'Upload\ImageRatio',
             'Upload\ImageWidth',
             'Upload\Size',
-        );
+        ];
         foreach ($rulesClasses as $class) {
             $fullClassName       = '\\' . __NAMESPACE__ . '\Rule\\' . $class;
             $name                = strtolower(str_replace('\\', '', $class));
@@ -107,7 +108,7 @@ class RuleFactory
      * @param string $name
      * @param string $class
      *
-     * @return \Latinosoft\Validation\RuleFactory
+     * @return $this
      */
     public function register($name, $class, $errorMessage = '', $labeledErrorMessage = '')
     {
@@ -137,9 +138,9 @@ class RuleFactory
      *            label of the form input field or model attribute
      *
      * @throws \InvalidArgumentException
-     * @return \Latinosoft\Validation\Rule\AbstractRule
+     * @return AbstractRule
      */
-    public function createRule($name, $options = null, $messageTemplate = null, $label = null)
+    public function createRule($name, $options = null, $messageTemplate = null, $label = null):AbstractRule
     {
         $validator = $this->construcRuleByNameAndOptions($name, $options);
 
@@ -209,12 +210,10 @@ class RuleFactory
     protected function construcRuleByNameAndOptions($name, $options)
     {
         if (is_callable($name)) {
-            $validator = new CallbackRule(
-                array(
-                    'callback'  => $name,
-                    'arguments' => $options
-                )
-            );
+            $validator = new CallbackRule([
+                'callback'  => $name,
+                'arguments' => $options
+            ]);
         } elseif (is_string($name)) {
             $name = trim($name);
             // use the validator map

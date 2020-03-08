@@ -2,12 +2,13 @@
 
 namespace Latinosoft\Validation\Rule;
 
+use PHPUnit\Framework\TestCase;
 use Latinosoft\Validation\Rule\NotEqual as Rule;
 
-class NotEqualTest extends \PHPUnit\Framework\TestCase
+class NotEqualTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->rule = new Rule();
     }

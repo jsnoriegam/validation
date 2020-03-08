@@ -3,11 +3,12 @@
 namespace Latinosoft\Validation\Rule;
 
 use Latinosoft\Validation\Rule\ArrayMinLength as Rule;
+use PHPUnit\Framework\TestCase;
 
-class ArrayMinLengthTest extends \PHPUnit\Framework\TestCase
+class ArrayMinLengthTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->rule = new Rule();
     }

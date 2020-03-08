@@ -3,11 +3,12 @@
 namespace Latinosoft\Validation\Rule;
 
 use Latinosoft\Validation\Rule\InList as Rule;
+use PHPUnit\Framework\TestCase;
 
-class InListTest extends \PHPUnit\Framework\TestCase
+class InListTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->rule = new Rule();
     }

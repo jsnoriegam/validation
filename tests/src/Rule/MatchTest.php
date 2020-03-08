@@ -4,11 +4,12 @@ namespace Latinosoft\Validation\Rule;
 
 use Latinosoft\Validation\DataWrapper\ArrayWrapper;
 use Latinosoft\Validation\Rule\Match as Rule;
+use PHPUnit\Framework\TestCase;
 
-class MatchTest extends \PHPUnit\Framework\TestCase
+class MatchTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->rule = new Rule();
         $this->rule->setContext(

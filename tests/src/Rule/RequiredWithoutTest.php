@@ -4,8 +4,9 @@ namespace Latinosoft\Validation\Rule;
 
 use Latinosoft\Validation\DataWrapper\ArrayWrapper;
 use Latinosoft\Validation\Rule\RequiredWithout as Rule;
+use PHPUnit\Framework\TestCase;
 
-class RequiredWithoutTest extends \PHPUnit\Framework\TestCase
+class RequiredWithoutTest extends TestCase
 {
 
     /**
@@ -13,7 +14,7 @@ class RequiredWithoutTest extends \PHPUnit\Framework\TestCase
      */
     protected $rule;
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->rule = new Rule();
         $this->rule->setContext(

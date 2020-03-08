@@ -2,10 +2,12 @@
 
 namespace Latinosoft\Validation\Rule\Upload;
 
-class ExtensionTest extends \PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+class ExtensionTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->validator = new Extension();
     }

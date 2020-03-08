@@ -2,10 +2,12 @@
 
 namespace Latinosoft\Validation\Util;
 
-class ArrTest extends \PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+class ArrTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->data = array(
             'name'      => 'John Doe',

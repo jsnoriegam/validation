@@ -3,11 +3,12 @@
 namespace Latinosoft\Validation\Rule;
 
 use Latinosoft\Validation\Rule\Callback as Rule;
+use PHPUnit\Framework\TestCase;
 
-class CallbackTest extends \PHPUnit\Framework\TestCase
+class CallbackTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->rule = new Rule();
     }

@@ -2,10 +2,12 @@
 
 namespace Latinosoft\Validation\Rule\Upload;
 
-class ImageTest extends \PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+class ImageTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->validator = new Image();
     }

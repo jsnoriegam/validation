@@ -2,10 +2,12 @@
 
 namespace Latinosoft\Validation\Rule\File;
 
-class ImageHeightTest extends \PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+class ImageHeightTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->validator = new ImageHeight(array( 'min' => 400 ));
     }

@@ -3,11 +3,12 @@
 namespace Latinosoft\Validation\Rule;
 
 use Latinosoft\Validation\Rule\LessThan as Rule;
+use PHPUnit\Framework\TestCase;
 
-class LessThanTest extends \PHPUnit\Framework\TestCase
+class LessThanTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->rule = new Rule();
     }

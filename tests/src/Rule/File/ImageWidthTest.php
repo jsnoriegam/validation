@@ -2,10 +2,12 @@
 
 namespace Latinosoft\Validation\Rule\File;
 
-class ImageWidthTest extends \PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+class ImageWidthTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->validator = new ImageWidth(array( 'min' => 500 ));
     }

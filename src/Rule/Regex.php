@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Latinosoft\Validation\Rule;
 
 class Regex extends AbstractRule
@@ -8,11 +11,11 @@ class Regex extends AbstractRule
     const MESSAGE = 'This input does not match the regular expression {pattern}';
     const LABELED_MESSAGE = '{label} does not match the regular expression {pattern}';
 
-    protected $optionsIndexMap = array(
+    protected $optionsIndexMap = [
         0 => self::OPTION_PATTERN
-    );
+    ];
 
-    public function validate($value, $valueIdentifier = null)
+    public function validate($value, string $valueIdentifier = null): bool
     {
         $this->value = $value;
         if (isset($this->options['pattern'])) {

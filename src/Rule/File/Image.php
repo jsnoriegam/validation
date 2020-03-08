@@ -1,7 +1,9 @@
 <?php
+declare(strict_types=1);
 
 namespace Latinosoft\Validation\Rule\File;
 
+use Latinosoft\Validation\ErrorMessage;
 use Latinosoft\Validation\Rule\AbstractRule;
 
 class Image extends AbstractRule
@@ -12,11 +14,11 @@ class Image extends AbstractRule
 
     const LABELED_MESSAGE = '{label} is not a valid image (only {image_types} are allowed)';
 
-    protected $options = array(
-        self::OPTION_ALLOWED_IMAGES => array( 'jpg', 'png', 'gif' )
-    );
+    protected $options = [
+        self::OPTION_ALLOWED_IMAGES => ['jpg', 'png', 'gif']
+    ];
 
-    protected $imageTypesMap = array(
+    protected $imageTypesMap = [
         IMAGETYPE_GIF      => 'gif',
         IMAGETYPE_JPEG     => 'jpg',
         IMAGETYPE_JPEG2000 => 'jpg',
@@ -24,7 +26,7 @@ class Image extends AbstractRule
         IMAGETYPE_PSD      => 'psd',
         IMAGETYPE_BMP      => 'bmp',
         IMAGETYPE_ICO      => 'ico',
-    );
+    ];
 
     public function setOption($name, $value)
     {
@@ -39,29 +41,31 @@ class Image extends AbstractRule
         return parent::setOption($name, $value);
     }
 
-    public function validate($value, $valueIdentifier = null)
+    public function validate($value, string $valueIdentifier = null):bool
     {
         $this->value = $value;
         if (! file_exists($value)) {
             $this->success = false;
         } else {
             $imageInfo     = getimagesize($value);
-            $extension     = $imageInfo !== false && isset($this->imageTypesMap[$imageInfo[2]]) ? $this->imageTypesMap[$imageInfo[2]] : false;
-            $this->success = ($extension && in_array($extension, $this->options[self::OPTION_ALLOWED_IMAGES]));
+            if (!is_array($imageInfo)) {
+                $this->success = false;
+            } else {
+                $extension     = $this->imageTypesMap[$imageInfo[2]] ?? false;
+                $this->success = ($extension && in_array($extension, $this->options[self::OPTION_ALLOWED_IMAGES]));
+            }
         }
 
         return $this->success;
     }
 
-    public function getPotentialMessage()
+    public function getPotentialMessage():ErrorMessage
     {
         $message    = parent::getPotentialMessage();
         $imageTypes = array_map('strtoupper', $this->options[self::OPTION_ALLOWED_IMAGES]);
-        $message->setVariables(
-            array(
-                'image_types' => implode(', ', $imageTypes)
-            )
-        );
+        $message->setVariables([
+            'image_types' => implode(', ', $imageTypes)
+        ]);
 
         return $message;
     }

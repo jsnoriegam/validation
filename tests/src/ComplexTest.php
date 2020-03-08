@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 class ComplexTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->validator = new Validator();
         $this->validator

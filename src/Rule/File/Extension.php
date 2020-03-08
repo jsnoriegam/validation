@@ -1,7 +1,9 @@
 <?php
+declare(strict_types=1);
 
 namespace Latinosoft\Validation\Rule\File;
 
+use Latinosoft\Validation\ErrorMessage;
 use Latinosoft\Validation\Rule\AbstractRule;
 
 class Extension extends AbstractRule
@@ -12,9 +14,9 @@ class Extension extends AbstractRule
 
     const LABELED_MESSAGE = '{label} does not have an acceptable extension ({file_extensions})';
 
-    protected $options = array(
-        self::OPTION_ALLOWED_EXTENSIONS => array()
-    );
+    protected $options = [
+        self::OPTION_ALLOWED_EXTENSIONS => []
+    ];
 
     public function setOption($name, $value)
     {
@@ -29,7 +31,7 @@ class Extension extends AbstractRule
         return parent::setOption($name, $value);
     }
 
-    public function validate($value, $valueIdentifier = null)
+    public function validate($value, string $valueIdentifier = null):bool
     {
         $this->value = $value;
         if (! file_exists($value)) {
@@ -45,15 +47,13 @@ class Extension extends AbstractRule
         return $this->success;
     }
 
-    public function getPotentialMessage()
+    public function getPotentialMessage():ErrorMessage
     {
         $message        = parent::getPotentialMessage();
         $fileExtensions = array_map('strtoupper', $this->options[self::OPTION_ALLOWED_EXTENSIONS]);
-        $message->setVariables(
-            array(
-                'file_extensions' => implode(', ', $fileExtensions)
-            )
-        );
+        $message->setVariables([
+            'file_extensions' => implode(', ', $fileExtensions)
+        ]);
 
         return $message;
     }

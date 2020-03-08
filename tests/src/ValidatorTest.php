@@ -20,7 +20,7 @@ class FakeObject
 class ValidatorTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->validator = new Validator(new RuleFactory, new ErrorMessage);
     }

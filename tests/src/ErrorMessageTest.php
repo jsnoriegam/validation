@@ -18,7 +18,7 @@ class CustomErrorMessage extends ErrorMessage
 class ErrorMessageTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->validator = new Validator();
         $this->validator->setErrorMessagePrototype(new CustomErrorMessage());

@@ -3,8 +3,9 @@
 namespace Latinosoft\Validation\Rule;
 
 use Latinosoft\Validation\Rule\NotBlank as Rule;
+use PHPUnit\Framework\TestCase;
 
-class NotBlankTest extends \PHPUnit\Framework\TestCase
+class NotBlankTest extends TestCase
 {
 
     /**

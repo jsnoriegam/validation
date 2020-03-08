@@ -3,11 +3,12 @@
 namespace Latinosoft\Validation\Rule;
 
 use Latinosoft\Validation\Rule\Integer as Rule;
+use PHPUnit\Framework\TestCase;
 
-class IntegerTest extends \PHPUnit\Framework\TestCase
+class IntegerTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->rule = new Rule();
     }

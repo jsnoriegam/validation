@@ -3,11 +3,12 @@
 namespace Latinosoft\Validation\Rule;
 
 use Latinosoft\Validation\Rule\Between as Rule;
+use PHPUnit\Framework\TestCase;
 
-class BetweenTest extends \PHPUnit\Framework\TestCase
+class BetweenTest extends TestCase
 {
 
-    function setUp(): void
+    protected function setUp(): void
     {
         $this->rule = new Rule();
     }
